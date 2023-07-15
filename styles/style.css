@@ -1,153 +1,164 @@
+:root {
+  --main: #fff;
+  --second: #ff1122;
+  --bg: rgb(0,0,0);
+
+}
 * {
   margin: 0;
   padding: 0;
-  list-style: none;
   text-decoration: none;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: "poppins", sans-serif;
+  
 }
 .navbar {
   width: 100%;
-  height: 60px;
-  /* border: 1px solid; */
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 7%;
-  background-color: rgb(0, 0, 0, 0.5);
+  padding: 0 8%;
+  background-color: var(--bg);
   position: fixed;
+  
 }
-.brand {
-  font-size: 25px;
+.navbar__brand {
+  font-size: 1.5rem;
   font-weight: bold;
   font-style: italic;
-  color: rgb(255, 0, 0);
+  color: var(--second);
 }
-.brand__span-accent {
-  color: white;
-}
-.navbar__menu {
-  display: flex;
+.navbar__span-accent {
+  color: var(--main);
 }
 .navbar__link {
   margin: auto 20px;
-  color: white;
+  color: var(--main);
+}
+.navbar__grid {
+  color: var(--main);
+  cursor: pointer;
+  display: none;
+  font-size: 1.3rem;
 }
 .navbar__link:hover {
-  color: rgb(255, 0, 0);
-  transition: 0.3s;
+  color: var(--second);
+  transition: .3s;
 }
+
 
 /* Hero section */
 .main {
   width: 100%;
+  outline: 1px solid;
 }
 .hero {
-  height: 100vh;
-  background-image: url(../images/bg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: rgb(255, 255, 255);
+  min-height: 100vh;
   display: flex;
-  padding-top: 25vh;
-  /* justify-content: center; */
-  align-items: flex-start;
-  flex-direction: column;
-  padding-left: 50px;
+  align-items: center;
+  background-image: url(../images/bg.jpg);
+  background-size: cover;
+}
+.hero__content {
+  color: var(--main);
+  max-width: 60rem;
+  padding: 0 0 150px 30px;
+  /* border: 2px solid white;
+  position: relative; */
 }
 .hero__title {
-  font-size: 60px;
+  margin: auto;
+  font-size: 4rem;
   text-shadow: 2px 2px 10px gray;
 }
+ 
 .hero__subtitle {
-  max-width: 500px;
+  max-width: 30rem;
   margin-bottom: 30px;
   text-shadow: 3px 3px 5px grey;
 }
+
 .hero__link {
+  display: block;
+  margin-left: 20px;
+  width: 200px;
   border: 2px solid rgb(255, 0, 0, 0.8);
   background-color: transparent;
   color: white;
-  padding: 20px 50px;
+  padding: 10px 10px;
   border-radius: 10px;
+  text-align: center;
 }
 .hero__link:hover {
   background-color: rgb(255, 0, 0, 0.8);
   transition: 0.5s;
-}
-.product {
-  background-color: rgb(255, 255, 255);
-}
-.card {
-  width: 81%;
-  margin: 40px auto;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.card-content {
-  width: 250px;
-  height: 320px;
-  text-align: center;
-  box-shadow: 5px 5px 10px rgb(128, 128, 128, 0.6);
-  border-radius: 10px;
-  margin: 20px;
-  color: red;
-  margin: 10px;
-}
-.card__title {
-  margin-bottom: 10px;
-}
-.card__image {
-  width: 200px;
-  height: 220px;
-}
-.card__title_text_blue {
-  color: blue;
-}
-.card__title_text_purple {
-  color: rgb(164, 3, 164);
-}
-.card__title_text_gold {
-  color: goldenrod;
-}
-.card__button {
-  padding: 7px 15px;
-  border-radius: 7px;
-  background-color: transparent;
-  border: 2px solid red;
-  color: red;
-  font-weight: bold;
-  cursor: pointer;
-}
-.card__button_color_blue {
-  border: 2px solid blue;
-  color: blue;
-}
-.card__button_color_purple {
-  border: 2px solid rgb(164, 3, 164);
-  color: rgb(164, 3, 164);
-}
-.card__button_color_gold {
-  border: 2px solid goldenrod;
-  color: goldenrod;
-}
-.card__button:hover {
-  background-color: red;
-  transition: 0.3s;
-  color: white;
-}
-.card__button_color_blue:hover {
-  background-color: blue;
-  color: white;
-}
-.card__button_color_purple:hover {
-  background-color: rgb(164, 3, 164);
-  color: white;
-}
-.card__button_color_gold:hover {
-  background-color: goldenrod;
-  color: white;
+} 
+
+/* media Query */
+/* Hanphone */
+@media (max-width: 540px) {
+  .navbar::before {
+    content: "";
+    width: 100%;
+    height: 50px;
+    background-color: var(--bg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+  }
+  .navbar__brand {
+    font-size: 1.8rem;
+    z-index: 1;
+  }
+  .navbar__grid {
+    display: block;
+    z-index: 1;
+  }
+  .navbar__menu {
+    position: absolute;
+    top: -400%;
+    right: 0;
+    background-color: var(--bg);
+    width: 100%;
+    /* height: 100vh; */
+    text-align: center;
+    border-radius: 0 0 0px 10px;
+    transition: .5s;
+    z-index: -1;
+    
+  }
+  .navbar__link {
+    display: block;
+    margin: 40px;
+    font-size: 1.1rem;
+  }
+  .navbar .active {
+    top: 50px;
+    
+  }
+  .hero {
+    background-position-x: -105% ;
+  }
+  .hero__content {
+    padding-bottom: 200px;
+  }
+  .hero__title {
+    font-size: 3rem;
+    margin-bottom: 20px
+  }
+  .hero__link {
+    position: absolute;
+    bottom: 30px;
+    left:25%;
+    /* right: 10%; */
+    margin: 0;
+  }
+
 }
